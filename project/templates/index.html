@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Correction</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+          }
+          :root {
+            --bg-color:rgb(2, 46, 85);
+            --snd-bg-color: #f8f6ec;
+            --text-color: #161815;
+            --main-color: #ef4110;
+          }
+          body {
+            color: var(--text-color);
+          
+          }
+        .container{
+            display:grid;
+            justify-content:center;
+            align-items:center;
+            margin-top:30px;
+        }
+        .button {
+            display: inline-block;
+            justify-content:center;
+            align-items:center;
+            padding: 1rem 2rem;
+            background: var(--main-color);
+            border-radius: 4rem;
+            box-shadow: 0 0 1rem;;
+            color: var(--snd-bg-color);
+            letter-spacing: .1rem;
+            transition: .5s ease;
+            font-size: 1rem;
+            font-weight: 600;
+          }
+          
+          .button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 2rem var(--main-color);
+          }
+          span{
+            font-size:3rem;
+            text-align:center;
+            color:white;
+            font-weight:500;
+          }
+        form{
+            border: 2px solid var(--main-color);
+            border-radius: 1rem;
+            box-shadow: 0 0 2rem var(--main-color);
+            transform: scale(1.04);
+            background-color: var(--snd-bg-color);
+            padding: 1.7rem;
+            margin: .8rem 0;
+            font-size: 1.8rem;
+        }
+        textarea{
+            border: 2px solid black;
+            border-radius:1rem;
+            text-align: center;
+            
+        }
+        .button1 {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--main-color);
+            border-radius: 4rem;
+            box-shadow: 0 0 2rem var(--bg-color);
+            font-size: medium;
+            font-weight: 600;
+            color: var(--snd-bg-color);
+            letter-spacing: .1rem;
+            transition: .5s ease;
+            font-size: 2rem;
+            width: fit-content;
+          }
+        .header{
+            text-align:center;
+        }
+        .video {
+            position: absolute;
+            object-fit: cover;
+            overflow: none;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index:-1;
+          }
+          #correctedText{
+            color:blue;
+            font-size:3rem;
+            font-weight:600;
+            border: 2px solid black;
+            border-radius:2rem;
+            box-shadow: 0 0 2rem var(--bg-color);
+            background-color:yellow;
+            text-align:center;
+
+          }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/text.webp') }}" class="video" alt="Background">
+    <h1 class="header"><span>Text Correction</span></h1><br>
+    <form id="checkForm">
+        <textarea name="text" id="text" rows="15" cols="100" placeholder="Enter text here..."class="text"></textarea>
+        <br>
+        <button type="submit" class="button">Check</button>
+    </form>
+    <br>
+    <h2><span>Corrected Text<span></h2><br>
+    <h1 id="correctedText"></h1>
+    <br>
+    <a href="{{ url_for('home') }}" class="button1">Back to home page</a>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#checkForm').on('submit', function(event) {
+                event.preventDefault();
+                $.ajax({
+                    url: '/check',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#correctedText').text(response.corrected_text);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+

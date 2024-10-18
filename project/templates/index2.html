@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text to Audio Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='txt.css') }}">
+  </head>
+  <body>
+    <div class="hello">
+      <div class="text">
+      <div class="container">
+        <img src="{{ url_for('static', filename='images/giphy.webp') }}" class="video" alt="Background">
+        <h1>Text to Audio Converter</h1>
+        <textarea
+          id="text-to-speak"
+          rows="5"
+          placeholder="Enter text to convert to speech..."
+        ></textarea>
+        <button id="speak-button" class="button1">Speak</button>
+      </div>
+      <div class="container">
+        <h1>Audio to Text Converter</h1>
+        <button id="startStopBtn"class="button">Start Recording</button>
+        <textarea id="transcript" placeholder="Transcribed text will appear here..." rows="10" cols="50"></textarea>
+      </div>
+      </div>
+        <a href="{{ url_for('home') }}" class="button">Back to home page</a>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='txt.js') }}"></script>
+  </body>
+</html>

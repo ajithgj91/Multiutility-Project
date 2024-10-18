@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- font css-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- main css-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        
+        <title>Task Fusion Hub </title>
+
+     </head>
+     <body>
+        <header class="header">
+            <a href="#" class="logo">Task Fusion Hub.</a>
+            <i class="fa-solid fa-bars" id="menu-icon"></i>
+             <nav class="navbar">
+              <a href="#home" class="active">Home</a>
+              <a href="#aboutme" >About </a>
+              <a href="{{ url_for('text_correction') }}">Text Correction</a>
+              <a href="{{ url_for('text_to_audio') }}" >Text to Audio</a>
+              <a href="{{ url_for('email_generator') }}" >Email Generator</a>
+              <a href="#contact">Contact Us</a>
+            </nav>
+        </header>
+    <!-- home section-->
+        <section class="home" id="home">
+           <div class="home-content" >
+            <img src="{{ url_for('static', filename='images/background.jpg') }}" class="video" alt="Background">
+                
+           </div> 
+           <div class="content">
+            <!--<p>Your one-stop solution for all text management needs. Organize, edit, and manage your texts effortlessly!</p>-->
+            
+            </div>
+        </section>
+        <!-- about me section-->
+        <section class="aboutme" id="aboutme">
+            <h1 class="heading"> <span>ABOUT </span>US <h1>
+          <div class="abt-container">
+            <div class="about-image">
+                <img src="abhihb.jpg" alt="">
+            </div>
+            <div class="about-content">         
+                    <h2><span>Our Features:</span></h2>
+                    <h2> 
+
+                        <span>Text Correction:</span> Improve the quality of your writing with our advanced text correction tool. Whether it's for professional documents, emails, or creative writing, our system ensures your text is clear, concise, and error-free.<br><br>
+                        
+                        <span>Email Generation:</span> Say goodbye to writer's block with our automated email generation feature. Generate professional and personalized emails in seconds, saving you time and ensuring you communicate effectively.<br><br>
+                        
+                        <span>Audio to Text:</span> Convert spoken words into written text effortlessly. Our accurate audio-to-text converter is perfect for transcribing meetings, lectures, interviews, and more.<br><br>
+                        
+                        <span>Text to Audio:</span> Turn written content into spoken words with our text-to-audio converter. Ideal for creating podcasts, audiobooks, or simply making your content more accessible.</h2><br><br>
+                    <a href="#home" class="button">Read more</a>
+            </div>
+          </div>
+        </section>
+         <!-- Skills section-->
+         <section class="skills" id="skills">
+                <h2 class="skill-heading"> <span>Services Provided</span></h2>
+            <div class="skills-container">
+                <div class="skill-box">         
+                    <h1><i class="fa-duotone fa-message-text"></i><span>Text Correction</span></h1><br>
+                    <p>Improve the quality of your writing with our advanced text correction tool. Whether it's for professional documents, emails, or creative writing, our system ensures your text is clear, concise, and error-free.</p><br>
+                    <a href="txtco.html" class="button">Know More </a>
+                </div>
+                <div class="skill-box">                    
+                    <h1 ><i class=""></i><span>Email Generation</span></h1><br>
+                    <p>Say goodbye to writer's block with our automated email generation feature. Generate professional and personalized emails in seconds, saving you time and ensuring you communicate effectively. <p><br>
+                    <a href="email.html" class="button">Know More </a>
+                </div>
+                <div class="skill-box">
+                    <h1><i class=""></i><span> Audio to Text</span></h1><br>
+                    <p>Convert spoken words into written text effortlessly. Our accurate audio-to-text converter is perfect for transcribing meetings, lectures, interviews, and more. </p><br><br>
+                    <a href="txt.html" class="button">Know More </a>
+                </div>
+            </div>
+         </section>
+         <!-- Contact section-->
+         <section class="contact" id="contact">
+            <h1 class="contact-heading"><span>Contact</span> US</h1>
+            <form action="#">
+                <div class="input-box">
+                    <input type="text" placeholder="Enter your name"><br>
+                    <input type="email" placeholder="Enter your mail-id"> 
+                </div>
+                <div class="input-box">
+                    <input type="number"placeholder="Enter your phone number">
+                    <input type="text" placeholder="Mail subject">
+                </div>
+                <textarea name=""id="" cols="30"rows="10" placeholder=" Message"></textarea>
+                <input type="button" value="Send message"class="button">
+          </form>
+        </section>
+        <!-- FOOTER section-->
+        <footer class="footer">
+
+            <div class="social-media">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a><br>
+            </div>
+            <ul class="footer-list">
+                <li><a href="#home">FAQ</a></li>
+                <li><a href="#aboutme">About US</a></li>
+                <li><a href="#skills">Services</a></li>
+                <li><a href="#contact">Contact US</a></li>
+                <li><a href="#home">Privacy Policy</a></li>
+            </ul>
+            <div class="footer-txt">
+                <p>Copyrights &copy; reserved by ADV Team | All rights reserved</p>
+            </div>       
+        </footer>
+        <!-- scroll js-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+      <!-- type js-->
+      <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+        <!-- Main js-->
+        <script src="main.js"></script>
+     </body>
+</html>
